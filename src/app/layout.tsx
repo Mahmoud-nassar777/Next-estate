@@ -7,6 +7,8 @@ import LoginModal from "@/components/modals/LoginModal";
 import CreatePropertyModal from "@/components/modals/CreatePropertyModal";
 import FilterModal from "@/components/modals/FilterModal";
 import { Toaster } from "react-hot-toast";
+import { Suspense } from "react";
+import RouteProgress from "@/components/ui/RouteProgress";
 
 
 const poppins = Poppins({
@@ -31,6 +33,9 @@ export default function RootLayout({
             className={`${poppins.className} h-full antialiased`}
         >
             <body className="min-h-full flex flex-col bg-background ">
+                <Suspense fallback={null}>
+                    <RouteProgress />
+                </Suspense>
                 {children}
                 <RegisterModel />
                 <LoginModal />
